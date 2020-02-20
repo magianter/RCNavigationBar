@@ -1,0 +1,2 @@
+# RCNavigationBar
+NavigationBar effect setting
