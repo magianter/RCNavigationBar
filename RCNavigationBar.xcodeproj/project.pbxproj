@@ -14,6 +14,11 @@
 		5765528E23FF841F00DAC5B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5765528D23FF841F00DAC5B2 /* Assets.xcassets */; };
 		5765529123FF841F00DAC5B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5765528F23FF841F00DAC5B2 /* LaunchScreen.storyboard */; };
 		5765529423FF841F00DAC5B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765529323FF841F00DAC5B2 /* main.m */; };
+		5765529C2400FB0300DAC5B2 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765529B2400FB0300DAC5B2 /* NavigationViewController.m */; };
+		576552A12401821300DAC5B2 /* download1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5765529D2401821300DAC5B2 /* download1.jpeg */; };
+		576552A22401821300DAC5B2 /* download.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5765529E2401821300DAC5B2 /* download.jpeg */; };
+		576552A32401821300DAC5B2 /* download2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5765529F2401821300DAC5B2 /* download2.jpeg */; };
+		576552A42401821300DAC5B2 /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 576552A02401821300DAC5B2 /* images.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +34,12 @@
 		5765529023FF841F00DAC5B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5765529223FF841F00DAC5B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5765529323FF841F00DAC5B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5765529A2400FB0300DAC5B2 /* NavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		5765529B2400FB0300DAC5B2 /* NavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		5765529D2401821300DAC5B2 /* download1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = download1.jpeg; sourceTree = "<group>"; };
+		5765529E2401821300DAC5B2 /* download.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = download.jpeg; sourceTree = "<group>"; };
+		5765529F2401821300DAC5B2 /* download2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = download2.jpeg; sourceTree = "<group>"; };
+		576552A02401821300DAC5B2 /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,12 +72,18 @@
 		5765528023FF841D00DAC5B2 /* RCNavigationBar */ = {
 			isa = PBXGroup;
 			children = (
+				5765529D2401821300DAC5B2 /* download1.jpeg */,
+				5765529F2401821300DAC5B2 /* download2.jpeg */,
+				5765529E2401821300DAC5B2 /* download.jpeg */,
+				576552A02401821300DAC5B2 /* images.jpeg */,
 				5765528123FF841D00DAC5B2 /* AppDelegate.h */,
 				5765528223FF841D00DAC5B2 /* AppDelegate.m */,
 				5765528423FF841D00DAC5B2 /* SceneDelegate.h */,
 				5765528523FF841D00DAC5B2 /* SceneDelegate.m */,
 				5765528723FF841D00DAC5B2 /* ViewController.h */,
 				5765528823FF841D00DAC5B2 /* ViewController.m */,
+				5765529A2400FB0300DAC5B2 /* NavigationViewController.h */,
+				5765529B2400FB0300DAC5B2 /* NavigationViewController.m */,
 				5765528A23FF841D00DAC5B2 /* Main.storyboard */,
 				5765528D23FF841F00DAC5B2 /* Assets.xcassets */,
 				5765528F23FF841F00DAC5B2 /* LaunchScreen.storyboard */,
@@ -135,7 +152,11 @@
 			files = (
 				5765529123FF841F00DAC5B2 /* LaunchScreen.storyboard in Resources */,
 				5765528E23FF841F00DAC5B2 /* Assets.xcassets in Resources */,
+				576552A32401821300DAC5B2 /* download2.jpeg in Resources */,
+				576552A42401821300DAC5B2 /* images.jpeg in Resources */,
+				576552A22401821300DAC5B2 /* download.jpeg in Resources */,
 				5765528C23FF841D00DAC5B2 /* Main.storyboard in Resources */,
+				576552A12401821300DAC5B2 /* download1.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +169,7 @@
 			files = (
 				5765528923FF841D00DAC5B2 /* ViewController.m in Sources */,
 				5765528323FF841D00DAC5B2 /* AppDelegate.m in Sources */,
+				5765529C2400FB0300DAC5B2 /* NavigationViewController.m in Sources */,
 				5765529423FF841F00DAC5B2 /* main.m in Sources */,
 				5765528623FF841D00DAC5B2 /* SceneDelegate.m in Sources */,
 			);
