@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "NavigationViewController.h"
+#import "TestNaviBarViewController.h"
 
 @interface ViewController ()
 
@@ -20,11 +20,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor purpleColor];
+    
     self.naviButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.naviButton.frame = CGRectMake(100, 100, 100, 100);
     self.naviButton.backgroundColor = [UIColor redColor];
     [self.naviButton addTarget:self action:@selector(jumpToNaiviVC) forControlEvents:UIControlEventTouchUpInside];
+    [self.naviButton setTitle:@"testCode" forState:UIControlStateNormal];
     [self.view addSubview:self.naviButton];
     
     //右侧item
@@ -37,13 +38,13 @@
     self.navigationItem.rightBarButtonItem = leftItem;
     
     //Title
-    self.navigationItem.title = @"title";
+    self.navigationItem.title = @"RCNavigationBar";
 //    self.navigationItem.prompt = @"prompt";
     
 }
 
 - (void)jumpToNaiviVC {
-    NavigationViewController *naviVC = [[NavigationViewController alloc]init];
+    TestNaviBarViewController *naviVC = [[TestNaviBarViewController alloc]init];
 //    UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStyleDone target:nil action:nil];
 //    self.navigationItem.backBarButtonItem = backBarButtonItem;
     [self.navigationController pushViewController:naviVC animated:nil];
