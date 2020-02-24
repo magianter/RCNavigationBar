@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     self.naviButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.naviButton.frame = CGRectMake(100, 100, 100, 100);
     self.naviButton.backgroundColor = [UIColor redColor];

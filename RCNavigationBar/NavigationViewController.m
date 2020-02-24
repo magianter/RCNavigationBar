@@ -8,8 +8,8 @@
 
 #import "NavigationViewController.h"
 
-@interface NavigationViewController ()<UIGestureRecognizerDelegate>
-@property (nonatomic, weak) id<UIGestureRecognizerDelegate>gestureDelegate;
+@interface NavigationViewController ()
+
 @end
 
 @implementation NavigationViewController
