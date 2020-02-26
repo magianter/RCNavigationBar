@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor orangeColor];
+    self.view.backgroundColor = [UIColor purpleColor];
     
     //自定义返回按钮
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -29,15 +29,17 @@
     self.navigationItem.leftBarButtonItem = leftButtonItem;
     
     //导航栏背景图片
-    //    self.navigationController.navigationBar.backIndicatorTransitionMaskImage = [UIImage imageNamed:@"download"];
     
-    //    UIImage *navigationBackImage = [UIImage imageNamed:@"images.jpeg"];
-    //    navigationBackImage = [navigationBackImage resizableImageWithCapInsets:UIEdgeInsetsZero resizingMode:UIImageResizingModeStretch];   //平铺
-    //    [self.navigationController.navigationBar setBackgroundImage:navigationBackImage forBarMetrics:UIBarMetricsDefault]; // 竖屏
+    UIImage *navigationBackImage = [UIImage imageNamed:@"download2.jpeg"];
+    navigationBackImage = [navigationBackImage resizableImageWithCapInsets:UIEdgeInsetsZero resizingMode:UIImageResizingModeStretch];
+    //平铺
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault]; // 竖屏
+    
+//    [self.navigationController.navigationBar setBackgroundImage:[self imageFromColor:[UIColor whiteColor] withSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)] forBarMetrics:UIBarMetricsDefault];
     
     //导航栏背景颜色
     self.navigationController.navigationBar.backgroundColor = [UIColor greenColor];
-    self.navigationController.navigationBar.barTintColor = [UIColor orangeColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
     
     //导航栏背景颜色 半透明  设置为NO 原点坐标以导航栏左下角为准
     self.navigationController.navigationBar.translucent = YES;
@@ -82,7 +84,20 @@
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer  {
     return self.navigationController.childViewControllers.count > 1;
 }
+
+- (nullable UIImage *)imageFromColor: (nonnull UIColor *)color withSize:(CGSize)size {
     
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, [UIScreen mainScreen].scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context,color.CGColor);
+    CGContextFillRect(context, rect);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+    
+}
+
 /*
  #pragma mark - Navigation
  

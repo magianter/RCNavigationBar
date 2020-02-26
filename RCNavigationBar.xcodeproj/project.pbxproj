@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5762846C240649E40025FA37 /* RCGradualChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5762846B240649E40025FA37 /* RCGradualChangeViewController.m */; };
 		5765528323FF841D00DAC5B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765528223FF841D00DAC5B2 /* AppDelegate.m */; };
 		5765528623FF841D00DAC5B2 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765528523FF841D00DAC5B2 /* SceneDelegate.m */; };
 		5765528923FF841D00DAC5B2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765528823FF841D00DAC5B2 /* ViewController.m */; };
@@ -23,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5762846A240649E40025FA37 /* RCGradualChangeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCGradualChangeViewController.h; sourceTree = "<group>"; };
+		5762846B240649E40025FA37 /* RCGradualChangeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCGradualChangeViewController.m; sourceTree = "<group>"; };
 		5765527E23FF841D00DAC5B2 /* RCNavigationBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCNavigationBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5765528123FF841D00DAC5B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5765528223FF841D00DAC5B2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -82,6 +85,8 @@
 				5765528523FF841D00DAC5B2 /* SceneDelegate.m */,
 				5765528723FF841D00DAC5B2 /* ViewController.h */,
 				5765528823FF841D00DAC5B2 /* ViewController.m */,
+				5762846A240649E40025FA37 /* RCGradualChangeViewController.h */,
+				5762846B240649E40025FA37 /* RCGradualChangeViewController.m */,
 				577AE41A240427AA00513EA1 /* TestNaviBarViewController.h */,
 				577AE41B240427AA00513EA1 /* TestNaviBarViewController.m */,
 				5765529A2400FB0300DAC5B2 /* NavigationViewController.h */,
@@ -182,6 +187,7 @@
 			files = (
 				5765528923FF841D00DAC5B2 /* ViewController.m in Sources */,
 				5765528323FF841D00DAC5B2 /* AppDelegate.m in Sources */,
+				5762846C240649E40025FA37 /* RCGradualChangeViewController.m in Sources */,
 				577AE41C240427AA00513EA1 /* TestNaviBarViewController.m in Sources */,
 				5765529C2400FB0300DAC5B2 /* NavigationViewController.m in Sources */,
 				5765529423FF841F00DAC5B2 /* main.m in Sources */,
@@ -328,6 +334,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5YLT96Q46A;
 				INFOPLIST_FILE = RCNavigationBar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -345,6 +352,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5YLT96Q46A;
 				INFOPLIST_FILE = RCNavigationBar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
