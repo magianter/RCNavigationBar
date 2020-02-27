@@ -11,9 +11,11 @@
 static NSString *const kGradualCellID = @"kGradualCellID";
 static CGFloat const headerImageHeight = 200.0;
 
-@interface RCGradualChangeViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface RCGradualChangeViewController ()<UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIButton *leftCustomButton;
+@property (nonatomic, weak) id<UIGestureRecognizerDelegate>gestureDelegate;
+
 @end
 
 @implementation RCGradualChangeViewController
@@ -47,6 +49,7 @@ static CGFloat const headerImageHeight = 200.0;
     [self.leftCustomButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.leftCustomButton];
     self.navigationItem.leftBarButtonItem = leftButtonItem;
+
 }
 
 - (void)goBack {
@@ -56,11 +59,22 @@ static CGFloat const headerImageHeight = 200.0;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    self.gestureDelegate = self.navigationController.interactivePopGestureRecognizer.delegate;
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    self.navigationController.interactivePopGestureRecognizer.delegate = self.gestureDelegate;
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    return self.navigationController.childViewControllers.count > 1;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return self.navigationController.childViewControllers.count > 1;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
