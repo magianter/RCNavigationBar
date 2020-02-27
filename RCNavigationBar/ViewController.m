@@ -80,7 +80,11 @@ static NSString  * const kCellIdentify = @"kCellIdentify";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.navigationController pushViewController:[self.viewControllersData[indexPath.row] new] animated:YES];
+    UIViewController *vc = [self.viewControllersData[indexPath.row] new];
+//    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+//    [backButton setTintColor:[UIColor whiteColor]];
+//    self.navigationItem.backBarButtonItem = backButton;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - 懒加载
