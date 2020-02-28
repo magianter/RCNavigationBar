@@ -56,11 +56,13 @@ static CGFloat const headerImageHeight = 200.0;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     self.gestureDelegate = self.navigationController.interactivePopGestureRecognizer.delegate;
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    self.navigationController.navigationBar.alpha = 1.0f;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    self.navigationController.navigationBar.alpha = 1.0f;
     self.navigationController.interactivePopGestureRecognizer.delegate = self.gestureDelegate;
 }
 
