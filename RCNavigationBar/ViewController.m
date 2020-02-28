@@ -14,8 +14,6 @@ static NSString  * const kCellIdentify = @"kCellIdentify";
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic, strong) UIButton      *naviButton;
-
 @property (nonatomic, strong) UITableView   *tableView;
 
 @property (nonatomic, strong) NSArray       *cellDataArray;
@@ -30,17 +28,11 @@ static NSString  * const kCellIdentify = @"kCellIdentify";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    self.naviButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.naviButton.frame = CGRectMake(100, 100, 100, 100);
-    self.naviButton.backgroundColor = [UIColor redColor];
-    [self.naviButton addTarget:self action:@selector(jumpToNaiviVC) forControlEvents:UIControlEventTouchUpInside];
-    [self.naviButton setTitle:@"testCode" forState:UIControlStateNormal];
-    [self.view addSubview:self.naviButton];
     
     //右侧item
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     leftButton.frame = CGRectMake(0, 100, 100, 100);
-    [leftButton setTitle:@"right" forState:UIControlStateNormal];
+    [leftButton setTitle:@"rightItem" forState:UIControlStateNormal];
     [leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
@@ -48,20 +40,12 @@ static NSString  * const kCellIdentify = @"kCellIdentify";
     
     //Title
     self.navigationItem.title = @"RCNavigationBar";
-//    self.navigationItem.prompt = @"prompt";
     
     //添加TableView
     [self.view addSubview:self.tableView];
     
 }
 
-- (void)jumpToNaiviVC {
-    TestNaviBarViewController *naviVC = [[TestNaviBarViewController alloc]init];
-//    UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStyleDone target:nil action:nil];
-//    self.navigationItem.backBarButtonItem = backBarButtonItem;
-    [self.navigationController pushViewController:naviVC animated:nil];
-    
-}
 
 #pragma mark - TableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -81,9 +65,6 @@ static NSString  * const kCellIdentify = @"kCellIdentify";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIViewController *vc = [self.viewControllersData[indexPath.row] new];
-//    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-//    [backButton setTintColor:[UIColor whiteColor]];
-//    self.navigationItem.backBarButtonItem = backButton;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -100,15 +81,14 @@ static NSString  * const kCellIdentify = @"kCellIdentify";
 
 - (NSArray *)cellDataArray {
     if (!_cellDataArray) {
-        _cellDataArray = @[@"渐变滚动",@"测试",@"3",@"4",@"5",@"6",@"7",
-                       @"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15"];
+        _cellDataArray = @[@"Gradient rolling"];
     }
     return _cellDataArray;
 }
 
 - (NSArray *)viewControllersData {
     if (!_viewControllersData) {
-        _viewControllersData = @[RCGradualChangeViewController.self,TestNaviBarViewController.self];
+        _viewControllersData = @[RCGradualChangeViewController.self];
     }
     return _viewControllersData;
 }
