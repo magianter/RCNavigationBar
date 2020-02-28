@@ -1,2 +1,3 @@
 # RCNavigationBar
-NavigationBar effect setting
+Navigation bar gradient effect
+
