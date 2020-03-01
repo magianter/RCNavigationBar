@@ -52,10 +52,9 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "Ren Chao" => "magianter@gmail.com" }
-  # Or just: spec.author    = "Ren Chao"
-  # spec.authors            = { "Ren Chao" => "magianter@gmail.com" }
-  # spec.social_media_url   = "https://twitter.com/Ren Chao"
+  spec.author             = { "magianter" => "magianter@gmail.com" }
+  # Or just: spec.author    = "magianter"
+  # spec.authors            = { "magianter" => "magianter@gmail.com" }
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
