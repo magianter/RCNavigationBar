@@ -12,6 +12,8 @@
 
 static NSString  * const kCellIdentify = @"kCellIdentify";
 
+static CGFloat const kCellHeight = 80.0;
+
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView   *tableView;
@@ -60,7 +62,7 @@ static NSString  * const kCellIdentify = @"kCellIdentify";
 
 #pragma mark - TableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80.0;
+    return kCellHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -81,7 +83,7 @@ static NSString  * const kCellIdentify = @"kCellIdentify";
 
 - (NSArray *)cellDataArray {
     if (!_cellDataArray) {
-        _cellDataArray = @[@"Gradient rolling"];
+        _cellDataArray = @[@"仿微信朋友圈"];
     }
     return _cellDataArray;
 }

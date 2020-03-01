@@ -7,6 +7,7 @@
 //
 
 #import "RCGradualChangeViewController.h"
+#import "RCNavigationBar.h"
 
 static NSString *const kGradualCellID = @"kGradualCellID";
 static CGFloat const headerImageHeight = 200.0;
@@ -15,6 +16,7 @@ static CGFloat const headerImageHeight = 200.0;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIButton *leftCustomButton;
 @property (nonatomic, weak) id<UIGestureRecognizerDelegate>gestureDelegate;
+@property (nonatomic, assign) TableViewHeaderHeightType headerHeaderViewHeightLevel;
 
 @end
 
@@ -27,14 +29,10 @@ static CGFloat const headerImageHeight = 200.0;
     [self.view addSubview:self.tableView];
     self.tableView.backgroundColor = [UIColor blackColor];
     
-    self.navigationController.navigationBar.translucent = YES;
     self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
-    [self.navigationController.navigationBar setBackgroundImage:[self imageWithColor:[[UIColor whiteColor]colorWithAlphaComponent:0.0]] forBarMetrics:UIBarMetricsDefault];
     
     UIImageView *headerImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, headerImageHeight)];
     headerImage.image = [UIImage imageNamed:@"download.jpeg"];
-    self.tableView.tableHeaderView = headerImage;
     
     //左侧按钮
     self.leftCustomButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -45,6 +43,17 @@ static CGFloat const headerImageHeight = 200.0;
     UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.leftCustomButton];
     self.navigationItem.leftBarButtonItem = leftButtonItem;
 
+    self.headerHeaderViewHeightLevel = tableViewHeaderHight;
+    [[RCNavigationBar shareInstanceManager] manageNavigationBarWithController:self];
+    [[RCNavigationBar shareInstanceManager] manageSliderSettingWithScrollView:self.tableView];
+    [[RCNavigationBar shareInstanceManager] setNaivigationBarTransluent:YES];
+    [[RCNavigationBar shareInstanceManager] setnavigationBarIsShowSeperatedLine:NO];
+    [[RCNavigationBar shareInstanceManager] setNavigationBarBackgroundImageWithColor:[UIColor whiteColor] withColorAlpha:0.0 barMetrics:UIBarMetricsDefault];
+    [[RCNavigationBar shareInstanceManager] setTableViewHeaderImage:headerImage];
+    
+    [[RCNavigationBar shareInstanceManager] setNavigationBarLeftCustomView:self.leftCustomButton];
+    [RCNavigationBar shareInstanceManager].leftItemButton = self.leftCustomButton;
+
 }
 
 - (void)goBack {
@@ -53,16 +62,19 @@ static CGFloat const headerImageHeight = 200.0;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+
+    [[RCNavigationBar shareInstanceManager] setNavigationBarStyle:UIBarStyleBlackTranslucent];
+    [[RCNavigationBar shareInstanceManager] setNavigationBarAlpha:1.0f];
+    
     self.gestureDelegate = self.navigationController.interactivePopGestureRecognizer.delegate;
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
-    self.navigationController.navigationBar.alpha = 1.0f;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-    self.navigationController.navigationBar.alpha = 1.0f;
+    [[RCNavigationBar shareInstanceManager] setNavigationBarStyle:UIBarStyleDefault];
+    [[RCNavigationBar shareInstanceManager] setNavigationBarAlpha:1.0f];
+    
     self.navigationController.interactivePopGestureRecognizer.delegate = self.gestureDelegate;
 }
 
@@ -80,58 +92,11 @@ static CGFloat const headerImageHeight = 200.0;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    NSLog(@"contentOffset.y==%f",scrollView.contentOffset.y);
-    CGFloat navigationBarHeight = self.navigationController.navigationBar.frame.size.height;
-    CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
     
-    if (scrollView == self.tableView) {
-        if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y< headerImageHeight - navigationBarHeight - statusBarHeight) {
-            self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-            [self.navigationController.navigationBar setBackgroundImage:[self imageWithColor:[[UIColor whiteColor]colorWithAlphaComponent:0.0]] forBarMetrics:UIBarMetricsDefault];
-            [self.leftCustomButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            
-            //导航栏逐渐消失
-            if ((scrollView.contentOffset.y < headerImageHeight - navigationBarHeight - statusBarHeight) && (scrollView.contentOffset.y >= headerImageHeight - 2*navigationBarHeight - statusBarHeight)) {
-                CGFloat hidedAlphaValue = (headerImageHeight - navigationBarHeight - statusBarHeight - scrollView.contentOffset.y)/(navigationBarHeight);
-                self.navigationController.navigationBar.alpha = hidedAlphaValue;
-                [self.leftCustomButton setTitleColor:[[UIColor whiteColor]colorWithAlphaComponent:hidedAlphaValue] forState:UIControlStateNormal];
-            }
-        }else if (scrollView.contentOffset.y >= headerImageHeight - navigationBarHeight - statusBarHeight) {
-            self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-            //导航栏逐渐显示
-            CGFloat showAlphaHeight = (scrollView.contentOffset.y - (headerImageHeight - navigationBarHeight - statusBarHeight))/navigationBarHeight;
-            if (showAlphaHeight >= 1.0) {
-                showAlphaHeight = 1.0;
-            }
-            
-            self.navigationController.navigationBar.alpha = showAlphaHeight;
-            [self.navigationController.navigationBar setBackgroundImage:[self imageWithColor:[[UIColor whiteColor]colorWithAlphaComponent:showAlphaHeight]] forBarMetrics:UIBarMetricsDefault];
-            [self.leftCustomButton setTitleColor:[[UIColor blackColor]colorWithAlphaComponent:showAlphaHeight] forState:UIControlStateNormal];
-        }else if (scrollView.contentOffset.y < 0) {
-            self.navigationController.navigationBar.alpha = 1;
-        }
-    }
+    [[RCNavigationBar shareInstanceManager] scrollView:scrollView changeScrollViewGradualWithHeaderViewHeight:headerImageHeight];
 }
 
-- (UIImage *)imageWithColor:(UIColor *)color
-{
-    // 描述矩形
-    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    // 开启位图上下文
-    UIGraphicsBeginImageContext(rect.size);
-    // 获取位图上下文
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    // 使用color演示填充上下文
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    // 渲染上下文
-    CGContextFillRect(context, rect);
-    // 从上下文中获取图片
-    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
-    // 结束上下文
-    UIGraphicsEndImageContext();
-    return theImage;
-}
-
+#pragma mark - TableViewDataDelegate & TableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 30;
 }
@@ -146,6 +111,7 @@ static CGFloat const headerImageHeight = 200.0;
     return 100.0;
 }
 
+#pragma mark - lazy loading
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc]initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
