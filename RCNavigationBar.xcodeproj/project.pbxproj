@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5762846C240649E40025FA37 /* RCGradualChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5762846B240649E40025FA37 /* RCGradualChangeViewController.m */; };
-		576284722409368D0025FA37 /* RCNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 576284712409368D0025FA37 /* RCNavigationBar.m */; };
+		5762847A240C1A0C0025FA37 /* RCNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 57628478240C1A0C0025FA37 /* RCNavigationBar.m */; };
 		5765528323FF841D00DAC5B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765528223FF841D00DAC5B2 /* AppDelegate.m */; };
 		5765528623FF841D00DAC5B2 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765528523FF841D00DAC5B2 /* SceneDelegate.m */; };
 		5765528923FF841D00DAC5B2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765528823FF841D00DAC5B2 /* ViewController.m */; };
@@ -26,8 +26,8 @@
 /* Begin PBXFileReference section */
 		5762846A240649E40025FA37 /* RCGradualChangeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCGradualChangeViewController.h; sourceTree = "<group>"; };
 		5762846B240649E40025FA37 /* RCGradualChangeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCGradualChangeViewController.m; sourceTree = "<group>"; };
-		576284702409368D0025FA37 /* RCNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCNavigationBar.h; sourceTree = "<group>"; };
-		576284712409368D0025FA37 /* RCNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCNavigationBar.m; sourceTree = "<group>"; };
+		57628478240C1A0C0025FA37 /* RCNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCNavigationBar.m; sourceTree = "<group>"; };
+		57628479240C1A0C0025FA37 /* RCNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCNavigationBar.h; sourceTree = "<group>"; };
 		5765527E23FF841D00DAC5B2 /* RCNavigationBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCNavigationBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5765528123FF841D00DAC5B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5765528223FF841D00DAC5B2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -59,9 +59,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57628477240C1A0C0025FA37 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				57628479240C1A0C0025FA37 /* RCNavigationBar.h */,
+				57628478240C1A0C0025FA37 /* RCNavigationBar.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		5765527523FF841D00DAC5B2 = {
 			isa = PBXGroup;
 			children = (
+				57628477240C1A0C0025FA37 /* Tools */,
 				5765528023FF841D00DAC5B2 /* RCNavigationBar */,
 				5765527F23FF841D00DAC5B2 /* Products */,
 			);
@@ -89,8 +99,6 @@
 				5762846B240649E40025FA37 /* RCGradualChangeViewController.m */,
 				577AE41A240427AA00513EA1 /* TestNaviBarViewController.h */,
 				577AE41B240427AA00513EA1 /* TestNaviBarViewController.m */,
-				576284702409368D0025FA37 /* RCNavigationBar.h */,
-				576284712409368D0025FA37 /* RCNavigationBar.m */,
 				5765528A23FF841D00DAC5B2 /* Main.storyboard */,
 				5765528D23FF841F00DAC5B2 /* Assets.xcassets */,
 				5765528F23FF841F00DAC5B2 /* LaunchScreen.storyboard */,
@@ -185,7 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				576284722409368D0025FA37 /* RCNavigationBar.m in Sources */,
+				5762847A240C1A0C0025FA37 /* RCNavigationBar.m in Sources */,
 				5765528923FF841D00DAC5B2 /* ViewController.m in Sources */,
 				5765528323FF841D00DAC5B2 /* AppDelegate.m in Sources */,
 				5762846C240649E40025FA37 /* RCGradualChangeViewController.m in Sources */,
